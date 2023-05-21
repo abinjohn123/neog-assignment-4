@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
 /**
  * Category Database can be added here.
@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: 'Full Size',
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      'Get the ultimate typing experience with our Full Size mechanical keyboards. Featuring a standard layout and spacious design, these keyboards offer complete functionality and comfort for all your typing needs.',
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: 'TKL',
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      'Experience compact efficiency with our TKL (Tenkeyless) mechanical keyboards. Designed without the numeric keypad, these keyboards provide a streamlined layout, ideal for users who value portability and desk space.',
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: '75%',
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      'Enjoy a perfect balance of functionality and compactness with our 75% mechanical keyboards. With a reduced layout that retains essential keys, these keyboards offer a space-saving solution without compromising on usability..',
   },
 ];

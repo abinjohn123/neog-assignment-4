@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
 /**
  * Product Database can be added here.
@@ -8,23 +8,37 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    title: 'Keychron K2 V2',
+    brand: 'Keychron',
+    price: '9000',
+    categoryName: '75%',
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    title: 'Keychron K8 Pro',
+    brand: 'Keychron',
+    price: '10500',
+    categoryName: 'TKL',
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    title: 'Hello Ganss GS 87C-HT',
+    brand: 'Keychron',
+    price: '10500',
+    categoryName: 'TKL',
+  },
+  {
+    _id: uuid(),
+    title: 'HyperX Alloy Origins',
+    brand: 'HyperX',
+    price: '10500',
+    categoryName: 'Full size',
+  },
+  {
+    _id: uuid(),
+    title: 'RK100',
+    brand: 'RK100',
+    price: '10500',
+    categoryName: 'Full size',
   },
 ];
