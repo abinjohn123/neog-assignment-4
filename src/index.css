@@ -1,7 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,500&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* imports */
+:root {
+  --gray-1: #e2e8f0;
+  --black-1: #020617;
+
+  --primary-1: #fde047;
+  --primary-2: #451a03;
+  --primary-3: #fef3c7;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+}
+
+/* Layout */
+.layout {
+  min-height: calc(100vh - 76px);
+}
+
+/* Footer */
+.app-footer {
+  display: flex;
+  background-color: var(--gray-1);
+  justify-content: space-between;
+  align-items: center;
+
+  padding: .8rem 1.6rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Home */
+.home-banner {
+  background-color: var(--primary-1);
+  padding: 5.2rem 2.4rem;
+}
+
+.home-title {
+  font-size: 6.2rem;
+  display: inline-block;
+  border-bottom: 5px solid #020617;
+  margin-bottom: 12px;
+}
+
+.home-description {
+  font-style: italic;
+}
+
+.home-featured {
+  background-color: var(--primary-3);
+  padding: 48px 16px;
+}
+
+.home-featured h3 {
+  font-size: 2.8rem;
+}
+
+.home-featured-review {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-featured-review .review {
+  font-size: 2rem;
+}
+
+.home-featured-review .author {
+  display: inline-block;
+  margin-left: auto;
+  text-align: end;
+  border-bottom: 2px solid var(--primary-2);
+}
+
+.categories {
+  padding: 64px 32px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  flex-basis: 240px;
+  border: 1px solid var(--black-1);
+  padding: 2.4rem;
+  border-radius: 4px;
+  box-shadow: 4px 4px 1px var(--primary-2);
+  cursor: pointer;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 1px var(--primary-2);
+}
+
+.category-card .name {
+  display: inline-block;
+  margin-bottom: 8px;
+  border-bottom: 5px solid var(--black-1);
+}
+
+.category-card .description {}
