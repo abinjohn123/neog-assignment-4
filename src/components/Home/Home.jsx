@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { CategoryCard } from './CategoryCard';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,7 +29,12 @@ const Home = () => {
         {categories.map((category) => (
           <CategoryCard category={category} key={category.id} />
         ))}
-        <div className="view-all">
+        <div
+          className="view-all"
+          onClick={() => {
+            navigate('./products');
+          }}
+        >
           View all products{' '}
           <svg
             xmlns="http://www.w3.org/2000/svg"
