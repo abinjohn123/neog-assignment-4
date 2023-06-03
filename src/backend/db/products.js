@@ -37,7 +37,7 @@ export const products = [
   {
     _id: uuid(),
     title: 'RK100',
-    brand: 'RK100',
+    brand: 'Royal Kludge',
     price: '10500',
     categoryName: 'Full size',
   },
