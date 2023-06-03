@@ -1,4 +1,22 @@
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../contexts/CartContext';
+import { useWishlist } from '../../contexts/WishlistContext';
+
 export const ProductCard = ({ product }) => {
+  const { cart, setCart } = useCart();
+  const { wishlist, setWishlist } = useWishlist();
+
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => setCart((cart) => [...cart, product._id]);
+
+  const handleWishlistClick = () =>
+    setWishlist((wishlist) =>
+      wishlist.includes(product._id)
+        ? wishlist.filter((id) => id !== product._id)
+        : [...wishlist, product._id]
+    );
+
   return (
     <div className="product-card">
       <div className="image">
@@ -7,8 +25,24 @@ export const ProductCard = ({ product }) => {
       <div className="name">{product.title}</div>
       <p className="brand">{product.brand}</p>
       <div className="actions">
-        <button className="btn-cart">Add to cart</button>
-        <button className="btn-wishlist">
+        {cart.includes(product._id) ? (
+          <button
+            className="btn-cart --added"
+            onClick={() => navigate('./cart')}
+          >
+            Go to cart
+          </button>
+        ) : (
+          <button className="btn-cart" onClick={handleAddToCart}>
+            Add to cart
+          </button>
+        )}
+        <button
+          className={`btn-wishlist ${
+            wishlist.includes(product._id) ? '--added' : ''
+          }`}
+          onClick={handleWishlistClick}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

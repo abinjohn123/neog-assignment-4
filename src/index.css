@@ -222,6 +222,7 @@ body {
   color: var(--primary-1);
 }
 
+
 .wishlist-icon {
   height: 24px;
   width: 24px;
@@ -231,6 +232,7 @@ body {
   padding: 4px;
 }
 
-.btn-wishlist:hover .wishlist-icon {
+.btn-wishlist:hover .wishlist-icon,
+.btn-wishlist.--added .wishlist-icon {
   fill: var(--primary-1)
 }

@@ -6,12 +6,19 @@ import { makeServer } from './server';
 import App from './App.jsx';
 import './index.css';
 
+import { CartProvider } from './contexts/CartContext';
+import { WishlistProvider } from './contexts/WishlistContext';
+
 makeServer();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <CartProvider>
+      <WishlistProvider>
+        <Router>
+          <App />
+        </Router>
+      </WishlistProvider>
+    </CartProvider>
   </React.StrictMode>
 );
