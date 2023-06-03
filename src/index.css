@@ -27,12 +27,17 @@ body {
 /* Layout */
 .layout {
   min-height: calc(100vh - 76px);
+  display: flex;
 }
 
 /* Header */
 .app-header-container {
   padding: 24px;
   border-bottom: 1px solid var(--primary-2);
+
+  position: sticky;
+  background-color: var(--gray-1);
+  top: 0;
 }
 
 /* Footer */
@@ -99,6 +104,30 @@ body {
   flex-wrap: wrap;
 }
 
+.categories .view-all {
+  align-self: flex-end;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+
+  padding: 0.8rem;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.view-all:hover {
+  background-color: var(--primary-1);
+  color: var(--primary-2);
+}
+
+.view-all .icon {
+  height: 20px;
+
+}
+
 .category-card {
   flex-basis: 240px;
   border: 1px solid var(--black-1);
@@ -121,4 +150,87 @@ body {
   border-bottom: 5px solid var(--black-1);
 }
 
-.category-card .description {}
+
+/* Products Listing */
+.products-listing {
+  width: 100%;
+  display: flex;
+}
+
+.filters {
+  flex-basis: 250px;
+  border-right: 1px solid var(--primary-2);
+  padding: 16px;
+}
+
+.products {
+  padding: 16px;
+}
+
+.products-container {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Product Card */
+.product-card {
+  padding: 16px;
+  width: 220px;
+  /* height: 220px; */
+  border: 1px solid var(--primary-2);
+  border-radius: 4px
+}
+
+.product-card .name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.product-card .brand {
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+}
+
+.btn-cart,
+.btn-wishlist {
+  cursor: pointer;
+  border: 1px solid var(--black-1);
+  background: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.btn-cart {
+  background-color: var(--black-1);
+  color: var(--gray-1);
+  font-size: 1.6rem;
+  transition: color 0.3s;
+}
+
+.btn-cart:hover {
+  color: var(--primary-1);
+}
+
+.wishlist-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.btn-wishlist {
+  padding: 4px;
+}
+
+.btn-wishlist:hover .wishlist-icon {
+  fill: var(--primary-1)
+}
