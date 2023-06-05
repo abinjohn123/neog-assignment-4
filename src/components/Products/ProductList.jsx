@@ -1,21 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import { ProductCard } from './ProductCard';
+import { useProducts } from './useProducts';
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { products, setProducts, isLoading, fetchAllProducts } = useProducts();
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch('/api/products')
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products))
-      .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false));
-
-    console.log(products);
+    fetchAllProducts();
   }, []);
+
   return (
     <div className="products-listing">
       <div className="filters">
@@ -32,7 +26,7 @@ const ProductList = () => {
                 <p>Products didn't load! Please try again in some time</p>
               )}
               {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product._id} product={product} />
               ))}
             </div>
           </>
