@@ -8,17 +8,20 @@ import './index.css';
 
 import { CartProvider } from './contexts/CartContext';
 import { WishlistProvider } from './contexts/WishlistContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 makeServer();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CartProvider>
-      <WishlistProvider>
-        <Router>
-          <App />
-        </Router>
-      </WishlistProvider>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <Router>
+            <App />
+          </Router>
+        </WishlistProvider>
+      </CartProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
