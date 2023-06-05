@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchAllProducts = () => {
@@ -16,7 +17,8 @@ const useProducts = () => {
   const fetchProduct = (uuid) => {
     setIsLoading(true);
     fetch(`/api/products/${uuid}`)
-      .then((res) => console.log(res))
+      .then((res) => res.json())
+      .then((data) => setProduct(data.product))
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
   };
@@ -24,6 +26,8 @@ const useProducts = () => {
   return {
     products,
     setProducts,
+    product,
+    setProduct,
     isLoading,
     setIsLoading,
     fetchAllProducts,

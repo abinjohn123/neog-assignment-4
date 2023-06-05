@@ -8,17 +8,25 @@ export const ProductCard = ({ product }) => {
 
   const navigate = useNavigate();
 
-  const handleAddToCart = () => setCart((cart) => [...cart, product._id]);
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    setCart((cart) => [...cart, product._id]);
+  };
 
-  const handleWishlistClick = () =>
+  const handleWishlistClick = (e) => {
+    e.stopPropagation();
     setWishlist((wishlist) =>
       wishlist.includes(product._id)
         ? wishlist.filter((id) => id !== product._id)
         : [...wishlist, product._id]
     );
+  };
 
   return (
-    <div className="product-card">
+    <div
+      className="product-card"
+      onClick={() => navigate(`/products/${product._id}`)}
+    >
       <div className="image">
         <img src="https://placehold.co/160x100" alt="placeholder-image" />
       </div>

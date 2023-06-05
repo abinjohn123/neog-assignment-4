@@ -5,6 +5,7 @@ import Footer from './components/shared/Footer.jsx';
 import Header from './components/shared/Header.jsx';
 import Home from './components/Home/Home.jsx';
 import ProductList from './components/Products/ProductList.jsx';
+import SingleProduct from './components/Products/SingleProduct.jsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/mockman" element={<Mockman />} />
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductList />} />
+            <Route path="/products/:productId" element={<SingleProduct />} />
           </Routes>
         </div>
         <Footer />
