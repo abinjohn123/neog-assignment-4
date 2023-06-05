@@ -333,3 +333,51 @@ body {
   background-color: var(--black-1);
   color: var(--gray-1)
 }
+
+/* Authentication */
+.login-form {
+  align-self: center;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--black-1);
+  padding: 12px;
+}
+
+.login-form span {
+  display: inline-block;
+  width: 150px;
+}
+
+.login-form input {
+  padding: 4px;
+}
+
+.btn-submit {
+  margin-top: 12px;
+  cursor: pointer;
+  font-family: 'lora', sans-serif;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1.6rem;
+  background-color: var(--black-1);
+  color: var(--gray-1);
+}
+
+.login-nudge {
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.login-nudge span {
+  margin-top: 8px;
+  width: auto;
+  cursor: pointer;
+  color: #0369a1;
+  font-weight: 500;
+}

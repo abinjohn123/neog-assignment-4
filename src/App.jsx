@@ -6,6 +6,7 @@ import Header from './components/shared/Header.jsx';
 import Home from './components/Home/Home.jsx';
 import ProductList from './components/Products/ProductList.jsx';
 import SingleProduct from './components/Products/SingleProduct.jsx';
+import Authenticate from './components/Auth/Authenticate.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/products/:productId" element={<SingleProduct />} />
+            <Route path="/login" element={<Authenticate />} />
           </Routes>
         </div>
         <Footer />
