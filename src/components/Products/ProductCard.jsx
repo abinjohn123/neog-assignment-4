@@ -23,7 +23,10 @@ export const ProductCard = ({ product }) => {
         <img src="https://placehold.co/160x100" alt="placeholder-image" />
       </div>
       <div className="name">{product.title}</div>
-      <p className="brand">{product.brand}</p>
+      <div className="d-flex brand-price">
+        <p className="brand">{product.brand}</p>
+        <p className="price">₹{product.price}</p>
+      </div>
       <div className="actions">
         {cart.includes(product._id) ? (
           <button

@@ -24,6 +24,14 @@ body {
   font-size: 1.6rem;
 }
 
+/* Helpers */
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
 /* Layout */
 .layout {
   min-height: calc(100vh - 76px);
@@ -188,8 +196,14 @@ body {
   margin-bottom: 4px;
 }
 
-.product-card .brand {
-  margin-bottom: 16px;
+.product-card .brand-price {
+  margin-bottom: 20px;
+}
+
+.product-card .price {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-2);
 }
 
 .actions {
