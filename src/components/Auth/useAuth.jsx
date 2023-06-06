@@ -11,7 +11,6 @@ const useAuth = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.encodedToken) {
           setToken(data.encodedToken);
           successCb();
