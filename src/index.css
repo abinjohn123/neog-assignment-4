@@ -37,7 +37,12 @@ body {
 .layout {
   min-height: calc(100vh - 76px);
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.section-heading {
+  text-align: center;
 }
 
 /* Home */
@@ -232,7 +237,7 @@ body {
   fill: var(--primary-1)
 }
 
-/* Single Product */
+/* Single Product, cart */
 .product {
   border: 1px solid var(--black-1);
   align-self: center;
