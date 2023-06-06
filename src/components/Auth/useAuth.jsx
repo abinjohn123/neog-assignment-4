@@ -12,8 +12,10 @@ const useAuth = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.encodedToken) setToken(data.encodedToken);
-        successCb();
+        if (data.encodedToken) {
+          setToken(data.encodedToken);
+          successCb();
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -27,8 +29,10 @@ const useAuth = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.encodedToken) setToken(data.encodedToken);
-        successCb();
+        if (data.encodedToken) {
+          setToken(data.encodedToken);
+          successCb();
+        }
       })
       .catch((err) => console.log(err));
   };
