@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 
 import { ProductCard } from './ProductCard';
 import { useProducts } from './useProducts';
+import { useCartWishlist } from './useCartWishlist';
 
 const ProductList = () => {
-  const { products, setProducts, isLoading, fetchAllProducts } = useProducts();
+  const { products, isLoading, fetchAllProducts } = useProducts();
+  const { getCart, getWishlist } = useCartWishlist();
 
   useEffect(() => {
     fetchAllProducts();
+    getCart();
+    getWishlist();
   }, []);
 
   return (

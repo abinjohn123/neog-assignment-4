@@ -1,25 +1,33 @@
 import { useNavigate } from 'react-router-dom';
+import { useCartWishlist } from './useCartWishlist';
+
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
 
 export const ProductCard = ({ product }) => {
+  const {
+    isLoading: isCartWishlistLoading,
+    getCart,
+    addToCart,
+    getWishlist,
+    addToWishlist,
+    removeFromWishlist,
+  } = useCartWishlist();
+
   const { cart, setCart } = useCart();
   const { wishlist, setWishlist } = useWishlist();
-
   const navigate = useNavigate();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    setCart((cart) => [...cart, product._id]);
+    addToCart({ product });
   };
 
   const handleWishlistClick = (e) => {
     e.stopPropagation();
-    setWishlist((wishlist) =>
-      wishlist.includes(product._id)
-        ? wishlist.filter((id) => id !== product._id)
-        : [...wishlist, product._id]
-    );
+    wishlist.find((items) => items._id === product._id)
+      ? removeFromWishlist(product._id)
+      : addToWishlist({ product });
   };
 
   return (
@@ -36,10 +44,13 @@ export const ProductCard = ({ product }) => {
         <p className="price">₹{product.price}</p>
       </div>
       <div className="actions">
-        {cart.includes(product._id) ? (
+        {cart.find((items) => items._id === product._id) ? (
           <button
             className="btn-cart --added"
-            onClick={() => navigate('./cart')}
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate('/cart');
+            }}
           >
             Go to cart
           </button>
@@ -50,7 +61,7 @@ export const ProductCard = ({ product }) => {
         )}
         <button
           className={`btn-wishlist ${
-            wishlist.includes(product._id) ? '--added' : ''
+            wishlist.find((items) => items._id === product._id) ? '--added' : ''
           }`}
           onClick={handleWishlistClick}
         >

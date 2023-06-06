@@ -1,6 +1,7 @@
-import { useParams } from 'react-router-dom';
-import { useProducts } from './useProducts';
 import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useProducts } from './useProducts';
+import { useCartWishlist } from './useCartWishlist';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
 
@@ -21,13 +22,19 @@ const DiscountStripe = ({ price }) => {
 const SingleProduct = () => {
   const { fetchProduct, isLoading, product } = useProducts();
   const { productId = '' } = useParams();
-  const { cart, setCart } = useCart();
-  const { wishlist, setWishlist } = useWishlist();
-
-  useEffect(() => fetchProduct(productId), []);
+  const { cart } = useCart();
+  const { wishlist } = useWishlist();
+  const { addToWishlist, removeFromWishlist } = useCartWishlist();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {};
-  const handleWishlistClick = () => {};
+  const handleWishlistClick = () => {
+    wishlist.find((items) => items._id === product._id)
+      ? removeFromWishlist(productId)
+      : addToWishlist({ product });
+  };
+
+  useEffect(() => fetchProduct(productId), []);
 
   if (isLoading) return <h3>Loading...</h3>;
   return (
@@ -51,18 +58,20 @@ const SingleProduct = () => {
             <button
               className="product-btn-cart"
               onClick={() =>
-                cart.includes(product._id)
-                  ? navigate('./cart')
+                cart.find((item) => item._id === product._id)
+                  ? navigate('/cart')
                   : handleAddToCart()
               }
             >
-              {cart.includes(product._id) ? 'Go to cart' : ' Add to cart'}
+              {cart.find((item) => item._id === product._id)
+                ? 'Go to cart'
+                : ' Add to cart'}
             </button>
             <button
               className="product-btn-wishlist"
               onClick={handleWishlistClick}
             >
-              {wishlist.includes(product._id)
+              {wishlist.find((item) => item._id === product._id)
                 ? 'Remove from wishlist'
                 : 'Add to wishlist'}
             </button>
