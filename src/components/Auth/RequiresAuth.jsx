@@ -5,8 +5,6 @@ const RequiresAuth = ({ children }) => {
   const { isLoggedIn } = useAuthContext();
   const location = useLocation();
 
-  console.log(location);
-
   return isLoggedIn ? (
     children
   ) : (
