@@ -1,10 +1,18 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { useAuth } from './useAuth';
 
 const Authenticate = ({ isNewUser = false }) => {
   const { signUp, logIn } = useAuth();
   const [isSignup, setIsSignUp] = useState(isNewUser);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const successCallback = () => {
+    const redirectTo = location.state?.from?.pathname || '/';
+    navigate(redirectTo);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +25,8 @@ const Authenticate = ({ isNewUser = false }) => {
     if (isSignup) {
       payload.firstName = e.target[3].value;
       payload.lastName = e.target[4].value;
-      signUp(payload);
-    } else logIn(payload);
+      signUp(payload, successCallback);
+    } else logIn(payload, successCallback);
   };
 
   return (

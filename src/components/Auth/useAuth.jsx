@@ -1,8 +1,10 @@
 import { useAuthContext } from '../../contexts/AuthContext';
 
+const noop = () => {};
+
 const useAuth = () => {
   const { setToken } = useAuthContext();
-  const logIn = (payload) => {
+  const logIn = (payload, successCb = noop) => {
     fetch('/api/auth/login', {
       method: 'POST',
       body: JSON.stringify(payload),
@@ -11,11 +13,12 @@ const useAuth = () => {
       .then((data) => {
         console.log(data);
         if (data.encodedToken) setToken(data.encodedToken);
+        successCb();
       })
       .catch((err) => console.log(err));
   };
 
-  const signUp = (payload) => {
+  const signUp = (payload, successCb = noop) => {
     console.log('PAY', payload);
     fetch('/api/auth/signup', {
       method: 'POST',
@@ -25,6 +28,7 @@ const useAuth = () => {
       .then((data) => {
         console.log(data);
         if (data.encodedToken) setToken(data.encodedToken);
+        successCb();
       })
       .catch((err) => console.log(err));
   };
