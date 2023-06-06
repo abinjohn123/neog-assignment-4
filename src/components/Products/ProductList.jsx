@@ -3,16 +3,21 @@ import { useEffect, useState } from 'react';
 import { ProductCard } from './ProductCard';
 import { useProducts } from './useProducts';
 import { useCartWishlist } from './useCartWishlist';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 const ProductList = () => {
+  const { isLoggedIn } = useAuthContext;
   const { products, isLoading, fetchAllProducts } = useProducts();
   const { getCart, getWishlist } = useCartWishlist();
 
   useEffect(() => {
     fetchAllProducts();
-    getCart();
-    getWishlist();
-  }, []);
+
+    if (isLoggedIn) {
+      getCart();
+      getWishlist();
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className="products-listing">

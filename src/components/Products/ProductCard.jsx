@@ -3,6 +3,7 @@ import { useCartWishlist } from './useCartWishlist';
 
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export const ProductCard = ({ product }) => {
   const {
@@ -14,17 +15,27 @@ export const ProductCard = ({ product }) => {
     removeFromWishlist,
   } = useCartWishlist();
 
+  const { isLoggedIn } = useAuthContext();
   const { cart, setCart } = useCart();
   const { wishlist, setWishlist } = useWishlist();
   const navigate = useNavigate();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
     addToCart({ product });
   };
 
   const handleWishlistClick = (e) => {
     e.stopPropagation();
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
     wishlist.find((items) => items._id === product._id)
       ? removeFromWishlist(product._id)
       : addToWishlist({ product });

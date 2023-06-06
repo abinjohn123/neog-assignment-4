@@ -4,6 +4,7 @@ import { useProducts } from './useProducts';
 import { useCartWishlist } from './useCartWishlist';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 const DiscountStripe = ({ price }) => {
   const originalPrice = Number(price) + 1500;
@@ -21,13 +22,22 @@ const DiscountStripe = ({ price }) => {
 
 const SingleProduct = () => {
   const { fetchProduct, isLoading, product } = useProducts();
+  const { isLoggedIn } = useAuthContext();
   const { productId = '' } = useParams();
   const { cart } = useCart();
   const { wishlist } = useWishlist();
-  const { addToWishlist, removeFromWishlist } = useCartWishlist();
+  const { addToCart, addToWishlist, removeFromWishlist } = useCartWishlist();
   const navigate = useNavigate();
 
-  const handleAddToCart = () => {};
+  const handleAddToCart = (e) => {
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
+    addToCart({ product });
+  };
+
   const handleWishlistClick = () => {
     wishlist.find((items) => items._id === product._id)
       ? removeFromWishlist(productId)
