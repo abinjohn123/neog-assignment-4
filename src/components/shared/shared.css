@@ -59,3 +59,10 @@
   font-weight: 500;
   font-style: italic;
 }
+
+.app-footer a,
+.app-footer a:visited,
+.app-footer a:active {
+  text-decoration: none;
+  color: var(--black-1)
+}
