@@ -19,16 +19,17 @@ function App() {
           <Routes>
             <Route path="/mockman" element={<Mockman />} />
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/products/:productId" element={<SingleProduct />} />
+            <Route path="/login" element={<Authenticate />} />
             <Route
-              path="/products"
+              path="/cart"
               element={
                 <RequiresAuth>
-                  <ProductList />
+                  <Cart />
                 </RequiresAuth>
               }
             />
-            <Route path="/products/:productId" element={<SingleProduct />} />
-            <Route path="/login" element={<Authenticate />} />
           </Routes>
         </div>
         <Footer />
