@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 
 import { makeServer } from './server';
 import App from './App.jsx';
@@ -14,14 +15,16 @@ makeServer();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <Router>
-            <App />
-          </Router>
-        </WishlistProvider>
-      </CartProvider>
-    </AuthProvider>
+    <SnackbarProvider autoHideDuration={2000}>
+      <AuthProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <Router>
+              <App />
+            </Router>
+          </WishlistProvider>
+        </CartProvider>
+      </AuthProvider>
+    </SnackbarProvider>
   </React.StrictMode>
 );

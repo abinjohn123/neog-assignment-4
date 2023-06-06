@@ -1,9 +1,12 @@
 import { useAuthContext } from '../../contexts/AuthContext';
+import { useSnackbar } from 'notistack';
 
 const noop = () => {};
 
 const useAuth = () => {
   const { setToken } = useAuthContext();
+  const { enqueueSnackbar } = useSnackbar();
+
   const logIn = (payload, successCb = noop) => {
     fetch('/api/auth/login', {
       method: 'POST',
@@ -15,6 +18,7 @@ const useAuth = () => {
           setToken(data.encodedToken);
           successCb();
         }
+        if (data.errors) enqueueSnackbar(data.errors[0], 'error');
         console.log(data);
       })
       .catch((err) => console.log(err));
@@ -31,8 +35,10 @@ const useAuth = () => {
         console.log(data);
         if (data.encodedToken) {
           setToken(data.encodedToken);
+          enqueueSnackbar('signup successful!');
           successCb();
         }
+        if (data.errors) enqueueSnackbar(data.errors[0]);
         console.log(data);
       })
       .catch((err) => console.log(err));

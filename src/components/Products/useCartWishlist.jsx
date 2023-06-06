@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
 
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
@@ -6,6 +7,7 @@ import { useWishlist } from '../../contexts/WishlistContext';
 
 const useCartWishlist = () => {
   const { token } = useAuthContext();
+  const { enqueueSnackbar } = useSnackbar();
   const { setCart } = useCart();
   const { setWishlist } = useWishlist();
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +37,7 @@ const useCartWishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        enqueueSnackbar('Added to cart!');
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -54,6 +57,7 @@ const useCartWishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        enqueueSnackbar('Removed from cart!');
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -74,6 +78,7 @@ const useCartWishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        enqueueSnackbar('Cart quantity updated!');
         if (data.cart.find((items) => items._id === productId)?.qty === 0)
           return removeFromCart(productId);
       })
@@ -109,6 +114,7 @@ const useCartWishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        enqueueSnackbar('Added to wishlist!');
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -128,6 +134,7 @@ const useCartWishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        enqueueSnackbar('Removed from wishlist!');
       })
       .catch((err) => console.log(err))
       .finally(() => {

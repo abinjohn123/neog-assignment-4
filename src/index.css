@@ -25,6 +25,10 @@ body {
   font-size: 1.6rem;
 }
 
+#notistack-snackbar {
+  font-size: 1.2rem;
+}
+
 /* Helpers */
 .d-flex {
   display: flex;
