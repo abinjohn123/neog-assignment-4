@@ -5,20 +5,7 @@ import { useCartWishlist } from './useCartWishlist';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
 import { useAuthContext } from '../../contexts/AuthContext';
-
-const DiscountStripe = ({ price }) => {
-  const originalPrice = Number(price) + 1500;
-
-  const discount = Math.floor(
-    ((originalPrice - Number(price)) * 100) / Number(price)
-  );
-  return (
-    <div className="product-price">
-      <span className="original-price">₹{Number(price) + 150}</span>{' '}
-      <span className="discount">({discount}% off)</span>
-    </div>
-  );
-};
+import { DiscountStripe } from '../shared/DiscountStripe';
 
 const SingleProduct = () => {
   const { fetchProduct, isLoading, product } = useProducts();
@@ -57,8 +44,8 @@ const SingleProduct = () => {
         />
         <div className="product-details">
           <h2 className="product-title">{product.title}</h2>
-          <div className="d-flex price-container">
-            <p className="product-price">₹{product.price}</p>
+          <div className="d-flex price-container product-price">
+            <p>₹{product.price}</p>
             <DiscountStripe price={product.price} />
           </div>
           <p className="product-brand">
