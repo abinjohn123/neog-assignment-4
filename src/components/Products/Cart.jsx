@@ -100,7 +100,7 @@ const CartItemCard = ({ item }) => {
 };
 
 const Cart = () => {
-  const { getCart, isLoading, addToWishlist } = useCartWishlist();
+  const { getCart, isLoading } = useCartWishlist();
   const { cart } = useCart();
   const { wishlist } = useWishlist();
 

@@ -7,6 +7,7 @@ import Home from './components/Home/Home.jsx';
 import ProductList from './components/Products/ProductList.jsx';
 import SingleProduct from './components/Products/SingleProduct.jsx';
 import Cart from './components/Products/Cart.jsx';
+import Wishlist from './components/Products/Wishlist.jsx';
 import Authenticate from './components/Auth/Authenticate.jsx';
 import RequiresAuth from './components/Auth/RequiresAuth.jsx';
 
@@ -27,6 +28,14 @@ function App() {
               element={
                 <RequiresAuth>
                   <Cart />
+                </RequiresAuth>
+              }
+            />
+            <Route
+              path="/wishlist"
+              element={
+                <RequiresAuth>
+                  <Wishlist />
                 </RequiresAuth>
               }
             />

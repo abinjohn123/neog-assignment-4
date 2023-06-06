@@ -15,6 +15,7 @@ const useAuth = () => {
           setToken(data.encodedToken);
           successCb();
         }
+        console.log(data);
       })
       .catch((err) => console.log(err));
   };
@@ -32,6 +33,7 @@ const useAuth = () => {
           setToken(data.encodedToken);
           successCb();
         }
+        console.log(data);
       })
       .catch((err) => console.log(err));
   };
