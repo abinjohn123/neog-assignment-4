@@ -30,7 +30,7 @@ const Authenticate = ({ isNewUser = false }) => {
   };
 
   return (
-    <div className="layout">
+    <>
       <div className="login-form">
         <form onSubmit={handleSubmit}>
           <label>
@@ -81,7 +81,7 @@ const Authenticate = ({ isNewUser = false }) => {
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

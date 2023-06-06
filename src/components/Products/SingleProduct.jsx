@@ -35,7 +35,7 @@ const SingleProduct = () => {
 
   if (isLoading) return <h3>Loading...</h3>;
   return (
-    <div className="layout">
+    <>
       <div className="product">
         <img
           className="product-image"
@@ -76,7 +76,7 @@ const SingleProduct = () => {
           <p className="product-description">{product.description}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

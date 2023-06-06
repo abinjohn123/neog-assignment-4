@@ -186,6 +186,11 @@ body {
   margin-bottom: 4px;
 }
 
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .product-card .brand-price {
   margin-bottom: 20px;
 }
@@ -246,7 +251,7 @@ body {
   border: 1px solid var(--black-1);
   align-self: center;
   /* max-width: 800px; */
-  margin: 0 auto;
+  margin: auto auto;
 
   display: grid;
   grid-template-columns: 600px 1fr;
@@ -323,6 +328,7 @@ body {
 
 /* Authentication */
 .login-form {
+  margin: auto 1px;
   align-self: center;
 }
 
