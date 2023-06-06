@@ -57,7 +57,7 @@ const useCartWishlist = () => {
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        getWishlist();
+        getCart();
         setIsLoading(false);
       });
   };
@@ -74,6 +74,8 @@ const useCartWishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.cart.find((items) => items._id === productId)?.qty === 0)
+          return removeFromCart(productId);
       })
       .catch((err) => console.log(err))
       .finally(() => {
