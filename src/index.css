@@ -199,6 +199,18 @@ body {
   gap: 0.8rem;
 }
 
+.range-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.range-filter input {
+  width: 100%;
+  cursor: pointer;
+}
+
 .price-filters label {
   cursor: pointer;
   display: flex;

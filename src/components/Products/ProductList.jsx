@@ -37,9 +37,15 @@ const ProductList = () => {
               {products.length === 0 && (
                 <p>Products didn't load! Please try again in some time</p>
               )}
-              {filteredProducts.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
+              {filteredProducts.length === 0 ? (
+                <p>
+                  No Products found. <br /> Please try another filter
+                </p>
+              ) : (
+                filteredProducts.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))
+              )}
             </div>
           </>
         )}
