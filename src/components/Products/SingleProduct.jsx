@@ -26,6 +26,11 @@ const SingleProduct = () => {
   };
 
   const handleWishlistClick = () => {
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
     wishlist.find((items) => items._id === product._id)
       ? removeFromWishlist(productId)
       : addToWishlist({ product });
