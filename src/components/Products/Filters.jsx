@@ -6,12 +6,16 @@ const CATEGORY_MAPPING = {
   2: 'Full size',
 };
 
-const Filters = ({ setFilteredProducts, products = [] }) => {
+const Filters = ({
+  setFilteredProducts,
+  products = [],
+  filteredProducts = [],
+}) => {
   const [selectedCategories, setSelectedCategories] = useState(
     Object.values(CATEGORY_MAPPING)
   );
   const [sortingKey, setSortingKey] = useState(0);
-  const [rating, setRating] = useState(-1);
+  const [rating, setRating] = useState(0);
 
   const handleSortByPrice = (e) => {
     setSortingKey(Number(e.target.value));
@@ -32,6 +36,12 @@ const Filters = ({ setFilteredProducts, products = [] }) => {
 
   const handleRatingChange = (e) => setRating(Number(e.target.value));
 
+  const resetFilters = () => {
+    setSelectedCategories(Object.values(CATEGORY_MAPPING));
+    setSortingKey(0);
+    setRating(0);
+  };
+
   useEffect(() => {
     const copyOfProducts = [...products];
 
@@ -49,7 +59,7 @@ const Filters = ({ setFilteredProducts, products = [] }) => {
           return selectedCategories.includes(item.categoryName);
         })
         .filter((item) => {
-          if (rating === -1) return item;
+          if (rating === 0) return item;
           return item.rating === rating;
         })
     );
@@ -57,16 +67,33 @@ const Filters = ({ setFilteredProducts, products = [] }) => {
 
   return (
     <div className="filters">
-      <h2>Filters</h2>
+      <div className="filters-header d-flex">
+        <h2>Filters</h2>
+        {(filteredProducts.length !== products.length || sortingKey !== 0) && (
+          <button onClick={resetFilters}>clear</button>
+        )}
+      </div>
 
       <div className="filter-group">
         <h3 className="filter-label">Sort by price</h3>
         <div onChange={handleSortByPrice} className="price-filters">
           <label>
-            <input type="radio" value={-1} name="price" /> High to Low
+            <input
+              type="radio"
+              value={-1}
+              name="price"
+              checked={sortingKey === -1}
+            />
+            High to Low
           </label>
           <label>
-            <input type="radio" value={1} name="price" /> Low to High
+            <input
+              type="radio"
+              value={1}
+              name="price"
+              checked={sortingKey === 1}
+            />{' '}
+            Low to High
           </label>
         </div>
       </div>
@@ -106,8 +133,8 @@ const Filters = ({ setFilteredProducts, products = [] }) => {
       <div className="filter-group">
         <h3 className="filter-label">Ratings</h3>
         <div onChange={handleRatingChange} className="range-filter">
-          <span>1</span>
-          <input type="range" min="1" max="5" id="myRange" />
+          <span>all</span>
+          <input type="range" min="0" max="5" id="myRange" value={rating} />
           <span>5</span>
         </div>
       </div>

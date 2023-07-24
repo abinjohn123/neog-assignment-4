@@ -25,7 +25,11 @@ const ProductList = () => {
 
   return (
     <div className="products-listing">
-      <Filters setFilteredProducts={setFilteredProducts} products={products} />
+      <Filters
+        setFilteredProducts={setFilteredProducts}
+        filteredProducts={filteredProducts}
+        products={products}
+      />
 
       <div className="products">
         {isLoading ? (
