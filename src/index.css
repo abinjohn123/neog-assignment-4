@@ -151,6 +151,7 @@ body {
 /* Products Listing */
 .products-listing {
   width: 100%;
+  flex-grow: 1;
   display: flex;
 }
 
@@ -170,6 +171,39 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+/* FILTERS */
+.filter-group {
+  border: 1px solid var(--black-1);
+  margin-top: 2rem;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  position: relative;
+}
+
+.filter-label {
+  font-size: 1.6rem;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(12px, -50%);
+}
+
+.price-filters {
+  font-size: 1.4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.price-filters label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
 }
 
 /* Product Card */

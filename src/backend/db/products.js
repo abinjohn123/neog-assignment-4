@@ -10,7 +10,7 @@ export const products = [
     _id: uuid(),
     title: 'Keychron K2 V2',
     brand: 'Keychron',
-    price: '9000',
+    price: 9000,
     categoryName: '75%',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -19,7 +19,7 @@ export const products = [
     _id: uuid(),
     title: 'Keychron K8 Pro',
     brand: 'Keychron',
-    price: '10500',
+    price: 10500,
     categoryName: 'TKL',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -28,7 +28,7 @@ export const products = [
     _id: uuid(),
     title: 'Hello Ganss GS 87C-HT',
     brand: 'Keychron',
-    price: '10500',
+    price: 10500,
     categoryName: 'TKL',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -37,7 +37,7 @@ export const products = [
     _id: uuid(),
     title: 'HyperX Alloy Origins',
     brand: 'HyperX',
-    price: '12500',
+    price: 12500,
     categoryName: 'Full size',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -46,7 +46,7 @@ export const products = [
     _id: uuid(),
     title: 'RK100',
     brand: 'Royal Kludge',
-    price: '8999',
+    price: 8999,
     categoryName: 'Full size',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -55,7 +55,7 @@ export const products = [
     _id: uuid(),
     title: 'Keychron V1',
     brand: 'Keychron',
-    price: '7500',
+    price: 7500,
     categoryName: '75%',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -64,7 +64,7 @@ export const products = [
     _id: uuid(),
     title: 'Ducky One',
     brand: 'Ducky',
-    price: '11000',
+    price: 11000,
     categoryName: 'TKL',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
@@ -73,7 +73,7 @@ export const products = [
     _id: uuid(),
     title: 'Glorius GMMK',
     brand: 'Glorius',
-    price: '13999',
+    price: 13999,
     categoryName: '75%',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
