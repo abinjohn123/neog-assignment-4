@@ -16,6 +16,24 @@ const Authenticate = ({ isNewUser = false }) => {
     navigate(redirectTo);
   };
 
+  const handleTestLogin = () => {
+    const email = 'adarshbalika@gmail.com';
+    const password = 'adarshbalika';
+
+    const emailEl = document.getElementById('input-email');
+    const passwordEl = document.getElementById('input-password');
+
+    const payload = {
+      email,
+      password,
+    };
+
+    emailEl.value = email;
+    passwordEl.value = password;
+
+    setTimeout(() => logIn(payload, successCallback), 400);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -42,11 +60,11 @@ const Authenticate = ({ isNewUser = false }) => {
         <form onSubmit={handleSubmit}>
           <label>
             <span>Email:</span>
-            <input type="email" required />
+            <input type="email" required id="input-email" />
           </label>
           <label>
             <span>Password:</span>
-            <input type="password" required />
+            <input type="password" required id="input-password" />
           </label>
           {isSignup && (
             <>
@@ -67,6 +85,15 @@ const Authenticate = ({ isNewUser = false }) => {
           <button type="submit" className="btn-submit">
             {isSignup ? 'Sign up' : 'Log in'}
           </button>
+          {!isSignup && (
+            <button
+              type="btn"
+              className="btn-submit --outline"
+              onClick={handleTestLogin}
+            >
+              Sign in with test credentials
+            </button>
+          )}
           <div className="login-nudge">
             {isSignup ? (
               <p>

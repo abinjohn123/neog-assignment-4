@@ -408,6 +408,13 @@ body {
   color: var(--gray-1);
 }
 
+.btn-submit.--outline {
+  margin-top: 0px;
+  background-color: #fff;
+  color: var(--black-1);
+  outline: 1px solid var(--black-1)
+}
+
 .login-nudge {
   text-align: center;
   font-size: 1.4rem;
