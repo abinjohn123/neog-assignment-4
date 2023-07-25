@@ -191,6 +191,10 @@ body {
   transform: translate(12px, -50%);
 }
 
+.search-filter {
+  padding: 4px 8px;
+}
+
 .price-filters {
   font-size: 1.4rem;
 

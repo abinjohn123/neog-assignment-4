@@ -17,6 +17,7 @@ const Filters = ({
   );
   const [sortingKey, setSortingKey] = useState(0);
   const [rating, setRating] = useState(0);
+  const [searchInput, setSearchInput] = useState('');
 
   const handleSortByPrice = (e) => {
     setSortingKey(Number(e.target.value));
@@ -41,6 +42,7 @@ const Filters = ({
     setSelectedCategories(Object.values(CATEGORY_MAPPING));
     setSortingKey(0);
     setRating(0);
+    setSearchInput('');
   };
 
   useEffect(() => {
@@ -51,6 +53,13 @@ const Filters = ({
 
     setFilteredProducts(
       copyOfProducts
+        .filter((item) => {
+          if (!searchInput) return item;
+
+          return item.title
+            .toLowerCase()
+            .includes(searchInput.toLowerCase().trim());
+        })
         .filter((item) => {
           if (
             selectedCategories.length === Object.keys(CATEGORY_MAPPING).length
@@ -64,7 +73,7 @@ const Filters = ({
           return item.rating === rating;
         })
     );
-  }, [selectedCategories, sortingKey, rating]);
+  }, [selectedCategories, sortingKey, rating, searchInput]);
 
   return (
     <div className="filters">
@@ -73,6 +82,17 @@ const Filters = ({
         {(filteredProducts.length !== products.length || sortingKey !== 0) && (
           <button onClick={resetFilters}>clear</button>
         )}
+      </div>
+
+      <div className="filter-group">
+        <h3 className="filter-label">Search product</h3>
+        <input
+          type="text"
+          className="search-filter"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          placeholder="type Keychron..."
+        />
       </div>
 
       <div className="filter-group">
