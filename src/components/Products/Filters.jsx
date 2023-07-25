@@ -73,7 +73,7 @@ const Filters = ({
           return item.rating === rating;
         })
     );
-  }, [selectedCategories, sortingKey, rating, searchInput]);
+  }, [products, selectedCategories, sortingKey, rating, searchInput]);
 
   return (
     <div className="filters">

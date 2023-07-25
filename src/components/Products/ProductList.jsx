@@ -15,8 +15,6 @@ const ProductList = () => {
   const location = useLocation();
   const initialCategory = location?.state?.category;
 
-  useEffect(() => setFilteredProducts(products), [products]);
-
   useEffect(() => {
     fetchAllProducts();
 
