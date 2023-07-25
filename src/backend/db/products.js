@@ -42,7 +42,7 @@ export const products = [
     brand: 'HyperX',
     rating: 1,
     price: 12500,
-    categoryName: 'Full size',
+    categoryName: 'Full Size',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
   },
@@ -52,7 +52,7 @@ export const products = [
     brand: 'Royal Kludge',
     rating: 4,
     price: 8999,
-    categoryName: 'Full size',
+    categoryName: 'Full Size',
     description:
       'With its tactile and responsive mechanical switches, this keyboard ensures each keystroke feels satisfyingly precise. Its durable construction guarantees long-lasting performance, while the customizable backlighting options add a touch of personalization. Ergonomically designed for comfort and featuring anti-ghosting technology, this keyboard is the perfect companion for both work and play',
   },

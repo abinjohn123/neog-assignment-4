@@ -3,16 +3,17 @@ import { useEffect, useState } from 'react';
 const CATEGORY_MAPPING = {
   0: '75%',
   1: 'TKL',
-  2: 'Full size',
+  2: 'Full Size',
 };
 
 const Filters = ({
   setFilteredProducts,
   products = [],
   filteredProducts = [],
+  initialCategory = '',
 }) => {
   const [selectedCategories, setSelectedCategories] = useState(
-    Object.values(CATEGORY_MAPPING)
+    initialCategory ? [initialCategory] : Object.values(CATEGORY_MAPPING)
   );
   const [sortingKey, setSortingKey] = useState(0);
   const [rating, setRating] = useState(0);

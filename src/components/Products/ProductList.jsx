@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { ProductCard } from './ProductCard';
 import { useProducts } from './useProducts';
@@ -11,6 +12,8 @@ const ProductList = () => {
   const { products, isLoading, fetchAllProducts } = useProducts();
   const { getCart, getWishlist } = useCartWishlist();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const location = useLocation();
+  const initialCategory = location?.state?.category;
 
   useEffect(() => setFilteredProducts(products), [products]);
 
@@ -29,6 +32,7 @@ const ProductList = () => {
         setFilteredProducts={setFilteredProducts}
         filteredProducts={filteredProducts}
         products={products}
+        initialCategory={initialCategory}
       />
 
       <div className="products">
