@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useProducts } from './useProducts';
 import { useCartWishlist } from './useCartWishlist';
 import { useCart } from '../../contexts/CartContext';
@@ -15,10 +15,12 @@ const SingleProduct = () => {
   const { wishlist } = useWishlist();
   const { addToCart, addToWishlist, removeFromWishlist } = useCartWishlist();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleAddToCart = (e) => {
     if (!isLoggedIn) {
-      navigate('/login');
+      navigate('/login', { state: { from: location } });
+
       return;
     }
 
@@ -27,7 +29,8 @@ const SingleProduct = () => {
 
   const handleWishlistClick = () => {
     if (!isLoggedIn) {
-      navigate('/login');
+      navigate('/login', { state: { from: location } });
+
       return;
     }
 

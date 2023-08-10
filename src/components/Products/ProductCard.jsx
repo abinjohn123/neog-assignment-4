@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useCartWishlist } from './useCartWishlist';
 
 import { useCart } from '../../contexts/CartContext';
@@ -19,11 +19,12 @@ export const ProductCard = ({ product }) => {
   const { cart, setCart } = useCart();
   const { wishlist, setWishlist } = useWishlist();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
     if (!isLoggedIn) {
-      navigate('/login');
+      navigate('/login', { state: { from: location } });
       return;
     }
 
@@ -33,7 +34,7 @@ export const ProductCard = ({ product }) => {
   const handleWishlistClick = (e) => {
     e.stopPropagation();
     if (!isLoggedIn) {
-      navigate('/login');
+      navigate('/login', { state: { from: location } });
       return;
     }
     wishlist.find((items) => items._id === product._id)
