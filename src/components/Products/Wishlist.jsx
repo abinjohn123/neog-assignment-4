@@ -9,11 +9,9 @@ import './cart.css';
 const CartItemCard = ({ product }) => {
   const { updateCartQuantity, addToCart, removeFromWishlist } =
     useCartWishlist();
-  const { wishlist } = useWishlist();
   const { cart } = useCart();
 
   const handleRemoveClick = () => {
-    console.log('REM');
     removeFromWishlist(product._id);
   };
 
@@ -53,8 +51,6 @@ const Wishlist = () => {
   const { getWishlist, isLoading } = useCartWishlist();
   const { cart } = useCart();
   const { wishlist } = useWishlist();
-
-  console.log(cart);
 
   const getTotalPrice = () =>
     cart.reduce(

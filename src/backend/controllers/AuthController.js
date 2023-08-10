@@ -3,8 +3,6 @@ import { Response } from 'miragejs';
 import { formatDate } from '../utils/authUtils';
 import sign from 'jwt-encode';
 
-console.log(sign);
-
 /**
  * All the routes related to Auth are present here.
  * These are Publicly accessible routes.
@@ -76,14 +74,10 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === foundUser.password) {
-      console.log('PASSWORD MATCH');
-      console.log(import.meta.env.VITE_REACT_APP_JWT_SECRET);
-      console.log(sign, typeof sign);
       const encodedToken = sign(
         { _id: foundUser._id, email },
         import.meta.env.VITE_REACT_APP_JWT_SECRET
       );
-      console.log(encodedToken);
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
     }
